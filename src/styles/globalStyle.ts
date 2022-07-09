@@ -1,4 +1,13 @@
-import font from '@assets/fonts/roboto-regular.woff';
+import fontLight1 from '@assets/fonts/roboto-light.woff';
+import fontLight2 from '@assets/fonts/roboto-light.woff2';
+import fontRegular1 from '@assets/fonts/roboto-regular.woff';
+import fontRegular2 from '@assets/fonts/roboto-regular.woff2';
+import fontMedium1 from '@assets/fonts/roboto-medium.woff';
+import fontMedium2 from '@assets/fonts/roboto-medium.woff2';
+import fontBold1 from '@assets/fonts/roboto-bold.woff';
+import fontBold2 from '@assets/fonts/roboto-bold.woff2';
+import fontBlack1 from '@assets/fonts/roboto-black.woff';
+import fontBlack2 from '@assets/fonts/roboto-black.woff2';
 import { css } from '@emotion/react';
 import { color } from './variables';
 
@@ -6,8 +15,32 @@ export const globalStyle = css`
   @font-face {
     font-family: 'Roboto';
     font-style: normal;
+    font-weight: 300;
+    src: url(${fontLight1}) format('woff'), url(${fontLight2}) format('woff2');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
     font-weight: 400;
-    src: url(${font});
+    src: url(${fontRegular1}) format('woff'), url(${fontRegular2}) format('woff2');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    src: url(${fontMedium1}) format('woff'), url(${fontMedium2}) format('woff2');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: url(${fontBold1}) format('woff'), url(${fontBold2}) format('woff2');
+  }
+  @font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 900;
+    src: url(${fontBlack1}) format('woff'), url(${fontBlack2}) format('woff2');
   }
 
   html {
