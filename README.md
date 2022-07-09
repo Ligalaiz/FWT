@@ -2,6 +2,6 @@
 
 ## Art Gallery
 
-### Test coverage: [unit](https://htmlpreview.github.io/?https://github.com/Ligalaiz/FWT/tree/develop/coverage/lcov-report/index.html)
+### Test coverage: [unit](https://htmlpreview.github.io/?https://github.com/Ligalaiz/FWT/blob/develop/coverage/lcov-report/index.html)
 
 ### Demo: [link](https://ligalaiz-fwt-art-gallery.netlify.app/)
