@@ -4,15 +4,16 @@ import { Global } from '@emotion/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { App } from '@src/App';
 import { globalStyle } from '@src/styles';
-import { RenderAppUtils } from '@utils/renderApp.utils';
+import { AppRouter } from '@src/router';
 
 render(
   <Router>
-    <div className="container">
+    <>
       <Global styles={globalStyle} />
-      <RenderAppUtils />
-      <App />
-    </div>
+      <App>
+        <AppRouter />
+      </App>
+    </>
   </Router>,
   document.getElementById('root'),
 );
