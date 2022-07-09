@@ -9,7 +9,7 @@ import { Layout } from '@src/screens/Layout';
 const AppRouter: FC = () => {
   const match = useParams();
   return (
-    <TransitionGroup>
+    <TransitionGroup className="wrapper">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route
