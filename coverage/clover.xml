@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1657357792547" clover="3.2.0">
+  <project timestamp="1657357792548" name="All files">
+    <metrics statements="17" coveredstatements="4" conditionals="6" coveredconditionals="0" methods="6" coveredmethods="2" elements="29" coveredelements="6" complexity="0" loc="17" ncloc="17" packages="4" files="6" classes="6"/>
+    <package name="components.Loader">
+      <metrics statements="4" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="Loader.tsx" path="C:\Users\Professional\Desktop\FWT\FWT\src\components\Loader\Loader.tsx">
+        <metrics statements="3" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="7" count="0" type="stmt"/>
+      </file>
+      <file name="LoaderStyle.ts" path="C:\Users\Professional\Desktop\FWT\FWT\src\components\Loader\LoaderStyle.ts">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="components.NotFoundPage">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="NotFoundPage.tsx" path="C:\Users\Professional\Desktop\FWT\FWT\src\components\NotFoundPage\NotFoundPage.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="modules.Gallery">
+      <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="Gallery.tsx" path="C:\Users\Professional\Desktop\FWT\FWT\src\modules\Gallery\Gallery.tsx">
+        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="9" coveredstatements="2" conditionals="4" coveredconditionals="0" methods="3" coveredmethods="1"/>
+      <file name="errorFallback.utils.tsx" path="C:\Users\Professional\Desktop\FWT\FWT\src\utils\errorFallback.utils.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+      </file>
+      <file name="errorReport.utils.ts" path="C:\Users\Professional\Desktop\FWT\FWT\src\utils\errorReport.utils.ts">
+        <metrics statements="7" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
