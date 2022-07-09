@@ -22,7 +22,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(gif|png|jpe?g|svg|webp)$/i,
+        test: /\.(gif|png|jpe?g|webp)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'assets/img/[name].[contenthash:10][ext]',
@@ -34,6 +34,10 @@ module.exports = {
         generator: {
           filename: 'assets/fonts/[name][ext]',
         },
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack'],
       },
       {
         test: /\.(js|ts)x?$/,
