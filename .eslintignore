@@ -1,0 +1,7 @@
+.vscode
+build/*.js
+*.config.js
+dist
+coverage
+.history
+storybook-static
