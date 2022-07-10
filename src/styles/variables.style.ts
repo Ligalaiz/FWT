@@ -17,5 +17,6 @@ export const color: IColor = {
 export const media: IColor = {
   sm: 'min-width: 768px',
   md: 'min-width: 1024px',
-  lg: 'min-width: 1366px',
+  lgM: 'min-width: 1366px',
+  lg: 'min-width: 1367px',
 };

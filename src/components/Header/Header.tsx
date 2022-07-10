@@ -5,7 +5,7 @@ import Theme from '@assets/img/theme.svg';
 
 const Header = () => {
   return (
-    <header>
+    <header css={h.header}>
       <div css={h.headerContainer}>
         <div css={h.headerLogo}>
           <a css={h.headerLink} href="#top">
