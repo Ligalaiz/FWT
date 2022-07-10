@@ -36,10 +36,6 @@ module.exports = {
         },
       },
       {
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
-      },
-      {
         test: /\.(js|ts)x?$/,
         exclude: /node_modules/,
         loader: 'babel-loader',

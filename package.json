@@ -5,7 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config config/webpack.prod.js --profile --json=compilation-stats.json",
+    "build": "webpack --config config/webpack.prod.js --profile",
     "start:client": "webpack serve --config config/webpack.dev.js",
     "lint": "eslint ./src --cache",
     "lint:fix": "eslint ./src  --fix",
