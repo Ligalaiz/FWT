@@ -1,7 +1,7 @@
 const { merge } = require('webpack-merge');
 const { join } = require('path');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+// const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const common = require('./webpack.common');
@@ -28,6 +28,13 @@ module.exports = merge(common, {
         test: /\.(sa|sc|c)ss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
       },
+      {
+        test: /\.(gif|png|jpe?g|webp|svg)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/img/[name].[contenthash:10][ext]',
+        },
+      },
     ],
   },
 
@@ -52,11 +59,11 @@ module.exports = merge(common, {
   },
 
   plugins: [
-    // new ESLintPlugin({
-      // extensions: ['js', 'jsx', '.ts', '.tsx'],
-      // fix: false,
-      // failOnError: true,
-    // }),
+    new ESLintPlugin({
+      extensions: ['js', 'jsx', '.ts', '.tsx'],
+      fix: false,
+      failOnError: true,
+    }),
     new HtmlWebpackPlugin({
       template: join(root, 'public/index.ejs'),
       templateParameters: {
@@ -70,26 +77,6 @@ module.exports = merge(common, {
     new MiniCssExtractPlugin({
       filename: 'styles/[name].[contenthash:10].css',
       chunkFilename: 'styles/[name].[contenthash:10].css',
-    }),
-    new ImageMinimizerPlugin({
-      minimizerOptions: {
-        plugins: [
-          ['gifsicle', { interlaced: true }],
-          ['jpegtran', { progressive: true }],
-          ['optipng', { optimizationLevel: 5 }],
-          [
-            'svgo',
-            {
-              plugins: [
-                {
-                  removeViewBox: false,
-                  removeDoctype: false,
-                },
-              ],
-            },
-          ],
-        ],
-      },
     }),
   ],
 });

@@ -9,7 +9,7 @@ import fontBold2 from '@assets/fonts/roboto-bold.woff2';
 import fontBlack1 from '@assets/fonts/roboto-black.woff';
 import fontBlack2 from '@assets/fonts/roboto-black.woff2';
 import { css } from '@emotion/react';
-import { color } from './variables';
+import { color } from './variables.style';
 
 export const globalStyle = css`
   @font-face {
@@ -46,7 +46,7 @@ export const globalStyle = css`
   html {
     box-sizing: border-box;
     overflow: -moz-scrollbars-vertical;
-    overflow-y: scroll;
+    overflow-y: auto;
     overflow-x: hidden;
 
     &:focus-within {
@@ -81,7 +81,7 @@ export const globalStyle = css`
   }
 
   :root {
-    font-size: 1rem;
+    font-size: 10px;
   }
 
   .container {
@@ -107,10 +107,11 @@ export const globalStyle = css`
 
     font-family: 'Roboto', 'Arial', sans-serif;
     font-weight: 400;
-    font-size: 1.6rem;
+    font-size: 1rem;
     line-height: 1.5;
-    color: ${color['white-color']};
+    color: ${color['black-color']};
 
+    background-color: ${color['gray-color-light']};
     text-rendering: optimizeSpeed;
     user-select: none;
     -webkit-font-smoothing: antialiased;
@@ -120,9 +121,15 @@ export const globalStyle = css`
     text-decoration: none;
   }
 
-  img {
-    max-width: 100%;
-    height: auto;
+  img,
+  svg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    vertical-align: top;
+    top: 0px;
+    left: 0px;
   }
 
   .visually-hidden {

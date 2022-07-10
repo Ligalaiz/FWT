@@ -6,6 +6,7 @@ export const githubCorner = css`
   right: 0;
   width: 10rem;
   height: 10rem;
+  z-index: 1000;
 
   &:hover .octo-arm {
     animation: octocat-wave 560ms ease-in-out;
