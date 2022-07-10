@@ -16,7 +16,7 @@ export const errorBg = css`
   left: 0;
 
   width: 100%;
-  height: 3.7rem;
+  height: 370px;
 
   overflow: hidden;
 `;
@@ -26,19 +26,19 @@ export const errorContent = css`
 
   display: block;
   margin: 0 auto;
-  width: 9.4rem;
-  height: 3.7rem;
+  width: 940px;
+  height: 370px;
 
   overflow: hidden;
 `;
 
 export const errorMessage = css`
   position: absolute;
-  left: 7.2rem;
-  top: 7.2rem;
+  left: 72px;
+  top: 72px;
 
-  width: 27.1rem;
-  height: 24.9rem;
+  width: 271px;
+  height: 249px;
 
   z-index: 10;
   transform: translate3d(-4.9238px, -2.01957px, 0px);
@@ -46,11 +46,11 @@ export const errorMessage = css`
 
 export const errorOctopus = css`
   position: absolute;
-  top: 9.4rem;
-  left: 35.6rem;
+  top: 94px;
+  left: 356px;
 
-  height: 23rem;
-  width: 18.8rem;
+  height: 230px;
+  width: 188px;
 
   z-index: 9;
   transform: translate3d(-2.4619px, -2.01957px, 0px);
@@ -58,11 +58,11 @@ export const errorOctopus = css`
 
 export const errorSpaceship = css`
   position: absolute;
-  top: 15rem;
-  left: 43.2rem;
+  top: 150px;
+  left: 432px;
 
-  height: 15.6rem;
-  width: 44rem;
+  height: 156px;
+  width: 440px;
 
   z-index: 8;
 
@@ -71,11 +71,11 @@ export const errorSpaceship = css`
 
 export const errorCircle = css`
   position: absolute;
-  top: 29.7rem;
-  left: 37.1rem;
+  top: 297px;
+  left: 371px;
 
-  height: 4.9rem;
-  width: 16.6rem;
+  height: 49px;
+  width: 166px;
 
   z-index: 7;
 
@@ -84,11 +84,11 @@ export const errorCircle = css`
 
 export const errorShadow = css`
   position: absolute;
-  top: 26.3rem;
-  left: 44.2rem;
+  top: 263px;
+  left: 442px;
 
-  height: 7.5rem;
-  width: 43rem;
+  height: 75px;
+  width: 430px;
 
   z-index: 6;
 
@@ -97,11 +97,11 @@ export const errorShadow = css`
 
 export const errorHouse = css`
   position: absolute;
-  top: 7.3rem;
-  left: 46.7rem;
+  top: 73px;
+  left: 467px;
 
-  height: 12.3rem;
-  width: 30.4rem;
+  height: 123px;
+  width: 304px;
 
   z-index: 5;
 
@@ -110,11 +110,11 @@ export const errorHouse = css`
 
 export const errorSmHouse = css`
   position: absolute;
-  left: 76.2rem;
-  top: 11.3rem;
+  left: 762px;
+  top: 113px;
 
-  height: 5rem;
-  width: 11.6rem;
+  height: 50px;
+  width: 116px;
 
   z-index: 4;
 
@@ -124,7 +124,7 @@ export const errorSmHouse = css`
 export const bgImage = css`
   position: absolute;
 
-  height: 41.5rem;
+  height: 415px;
   width: 100%;
 
   z-index: 1;
