@@ -5,7 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config config/webpack.prod.js --profile --json=compilation-stats.json",
+    "build": "webpack --config config/webpack.prod.js --profile",
     "start:client": "webpack serve --config config/webpack.dev.js",
     "lint": "eslint ./src --cache",
     "lint:fix": "eslint ./src  --fix",
@@ -51,6 +51,7 @@
     "@emotion/jest": "^11.5.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.5",
     "@react-mock/localstorage": "^0.1.2",
+    "@svgr/webpack": "^6.2.1",
     "@testing-library/dom": "^8.13.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.0.0",

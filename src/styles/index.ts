@@ -1,2 +1,2 @@
-export { globalStyle } from './globalStyle';
-export { color } from './variables';
+export { globalStyle } from './global.style';
+export { color, media } from './variables.style';

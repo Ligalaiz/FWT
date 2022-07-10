@@ -13,3 +13,10 @@ export const color: IColor = {
   'red-color': '#D00000',
   'blue-color': '#518fb4',
 };
+
+export const media: IColor = {
+  sm: 'min-width: 768px',
+  md: 'min-width: 1024px',
+  lgM: 'min-width: 1366px',
+  lg: 'min-width: 1367px',
+};

@@ -1,8 +1,9 @@
 import React from 'react';
 import * as h from './Gallery.style';
+import { Header } from '@components/Header';
 
 const Gallery = () => {
-  return <div css={h.title}>Welcome!</div>;
+  return <Header />;
 };
 
 export { Gallery };
