@@ -111,7 +111,7 @@ export const globalStyle = css`
     line-height: 1.5;
     color: ${color['black-color']};
 
-    background-color: ${color['gray-color-light']};
+    background-color: ${color['gray-color-light-x1']};
     text-rendering: optimizeSpeed;
     user-select: none;
     -webkit-font-smoothing: antialiased;
@@ -168,15 +168,13 @@ export const globalStyle = css`
   }
 
   ::-webkit-scrollbar-thumb {
-    background: ${color['gray-color']};
-    background-clip: padding-box;
-    border-radius: 0.5rem;
+    border-left: 15px solid ${color['gray-color']};
   }
 
   input:-webkit-autofill,
   input:-webkit-autofill:hover,
   input:-webkit-autofill:focus,
   input:-webkit-autofill:active {
-    -webkit-box-shadow: 0 0 0 3rem $white-color inset !important;
+    -webkit-box-shadow: 0 0 0 3rem ${color['white-color']}; inset !important;
   }
 `;
