@@ -16,6 +16,10 @@ export const headerContainer = css`
   margin: 0 auto;
   max-width: 72.8rem;
 
+  @media (${media.smM}) {
+    padding: 2.3rem 0.6rem 2.5rem 1.8rem;
+  }
+
   @media (${media.sm}) {
     padding: 3.3rem 1.9rem 3.5rem 3.2rem;
     max-width: 99.4rem;
