@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { color } from '@src/styles';
 
-export const title = css`
-  color: ${color['black-color']};
+export const main = css`
+  padding-top: 11.3rem;
 `;
