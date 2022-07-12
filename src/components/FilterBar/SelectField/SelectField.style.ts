@@ -36,6 +36,7 @@ export const dropDownText = css`
 `;
 
 export const dropDownBtn = css`
+  position: relative;
   display: flex;
   justify-content: space-between;
   padding: 1.5rem 1.7rem 1.5rem 1.4rem;
@@ -51,19 +52,60 @@ export const dropDownBtn = css`
   &.active {
     border-radius: 0.8rem 0.8rem 0 0;
     border: 1px solid ${color['black-color']};
+
+    &:before {
+      content: ' ';
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      display: block;
+
+      cursor: default;
+      background: transparent;
+      z-index: 80;
+    }
   }
 `;
 
-export const dropDownList = css`
+export const dropDownListWrap = css`
   position: absolute;
   top: 100%;
   left: 0;
 
   width: 100%;
   max-height: 43rem;
-  padding: 0.7rem 0;
+  padding-bottom: 3rem;
   border: 1px solid ${color['black-color']};
   border-top: none;
+
+  background-color: ${color['white-color']};
+  overflow: hidden;
+
+  @media (${media.sm}) {
+    border-radius: 0 0 0.8rem 0.8rem;
+    max-height: 35.4rem;
+    padding-bottom: 3rem;
+  }
+
+  @media (${media.lg}) {
+    padding-bottom: 2rem;
+    max-height: 30rem;
+  }
+`;
+
+export const dropDownList = css`
+  position: relative;
+  top: 100%;
+  left: 0;
+
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 40rem;
+  padding: 0.7rem 0;
 
   background-color: ${color['white-color']};
   overflow: overlay;
@@ -75,10 +117,17 @@ export const dropDownList = css`
 
   &::-webkit-scrollbar-thumb {
     border-left: 10px solid ${color['gray-color']};
+    height: 20px;
+    width: 20px;
   }
 
   &::-webkit-scrollbar-track {
     background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-track-piece:start {
+    background: transparent;
+    margin-top: 0.1rem;
   }
 
   &:before {
@@ -90,12 +139,14 @@ export const dropDownList = css`
     background-color: ${color['white-color']};
   }
 
-  &:active {
-    border: 1px solid ${color['black-color']};
+  @media (${media.sm}) {
+    padding-top: 1.4rem;
+    row-gap: 1rem;
+    max-height: 32.4rem;
   }
 
-  @media (${media.sm}) {
-    border-radius: 0 0 0.8rem 0.8rem;
+  @media (${media.md}) {
+    max-height: 33.4rem;
   }
 `;
 
@@ -114,6 +165,24 @@ export const dropDownItem = css`
   &:hover {
     color: ${color['white-color']};
     background-color: ${color['black-color']};
+  }
+
+  @media (${media.sm}) {
+    padding: 0.5rem 0.3rem 0.5rem 1.5rem;
+
+    max-width: 20.9rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 14.5rem;
+    min-height: 2.96rem;
+
+    overflow: hidden;
+  }
+
+  @media (${media.md}) {
+    padding-left: 2rem;
+    max-width: 20rem;
+    min-height: 3rem;
   }
 `;
 

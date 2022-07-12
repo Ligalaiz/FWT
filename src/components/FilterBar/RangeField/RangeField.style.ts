@@ -23,6 +23,21 @@ export const createdBtn = css`
     border-radius: 0.8rem 0.8rem 0 0;
     border-bottom: none;
     border: 1px solid ${color['black-color']};
+
+    &:before {
+      content: ' ';
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      display: block;
+
+      cursor: default;
+      background: transparent;
+      z-index: 80;
+    }
   }
 `;
 
@@ -53,6 +68,22 @@ export const createdList = css`
   border-top: none;
 
   background-color: ${color['white-color']};
+
+  @media (min-width: 500px) {
+    flex-direction: column;
+  }
+  @media (min-width: 600px) {
+    flex-direction: row;
+  }
+  @media (min-width: 740px) {
+    flex-direction: column;
+  }
+  @media (min-width: 1140px) {
+    flex-direction: row;
+  }
+  @media (min-width: 1366px) {
+    gap: 0.9rem;
+  }
 `;
 
 export const createdField = css`
@@ -67,6 +98,10 @@ export const createdField = css`
 
   &::placeholder {
     color: ${color['black-color-light']};
+  }
+  @media (min-width: 1366px) {
+    padding: 1.4rem 1rem;
+    max-width: 9.4rem;
   }
 `;
 
