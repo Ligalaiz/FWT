@@ -1,5 +1,8 @@
 import React, { useState, MouseEvent, Dispatch, SetStateAction } from 'react';
+import useMatchMedia from 'use-match-media-hook';
 import * as s from './SelectField.style';
+
+const queries = ['(max-width: 499px)'];
 
 interface IOptions {
   id: number;
@@ -16,9 +19,12 @@ interface ISelectedField {
 
 const SelectField = ({ name, options, selected, setSelected }: ISelectedField) => {
   const [isActive, setIsActive] = useState(false);
+  const [isOrderFirst, setIsOrderFirst] = useState(false);
+  const [mobile] = useMatchMedia(queries);
 
   const handleDropDownBtnClick = () => {
     setIsActive(!isActive);
+    if (mobile) setIsOrderFirst(!isOrderFirst);
   };
 
   const handleDropDownItemClick = (e: MouseEvent<HTMLLIElement>) => {
@@ -27,6 +33,7 @@ const SelectField = ({ name, options, selected, setSelected }: ISelectedField) =
     };
     setSelected(textContent);
     setIsActive(false);
+    if (mobile) setIsOrderFirst(!isOrderFirst);
   };
 
   const handleDropDownCancelClick = (e: MouseEvent<HTMLButtonElement>) => {
@@ -37,7 +44,7 @@ const SelectField = ({ name, options, selected, setSelected }: ISelectedField) =
   const val = name === 'Author' ? 'name' : 'location';
 
   return (
-    <div css={s.dropDown} className={isActive ? 'active' : ''}>
+    <div css={s.dropDown} className={isOrderFirst ? 'active' : ''}>
       <div css={s.dropDownBtn} onClick={handleDropDownBtnClick} className={isActive ? 'active' : ''}>
         <p css={s.dropDownText}>{selected || name}</p>
         <div css={s.dropDownPanel}>
@@ -46,7 +53,7 @@ const SelectField = ({ name, options, selected, setSelected }: ISelectedField) =
         </div>
       </div>
       {isActive && (
-        <>
+        <div css={s.dropDownListWrap}>
           <ul className="reset-list" css={s.dropDownList}>
             {options &&
               options.map((item) => (
@@ -55,7 +62,7 @@ const SelectField = ({ name, options, selected, setSelected }: ISelectedField) =
                 </li>
               ))}
           </ul>
-        </>
+        </div>
       )}
     </div>
   );
