@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, FormEvent } from 'react';
 import * as f from './FilterBar.style';
 import { SearchField } from '@components/FilterBar/SearchField';
 import { SelectField } from '@components/FilterBar/SelectField';
@@ -12,8 +12,12 @@ const FilterBar = () => {
   const [selectedFrom, setSelectedFrom] = useState('');
   const [selectedBefore, setSelectedBefore] = useState('');
 
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+  };
+
   return (
-    <form css={f.filterBarWrap}>
+    <form css={f.filterBarWrap} id="form" onSubmit={handleSubmit}>
       <div css={f.filterBar}>
         <SearchField searchValue={searchValue} setSearchValue={setSearchValue} />
         <SelectField name="Author" options={options1} selected={selectedAuthor} setSelected={setSelectedAuthor} />
