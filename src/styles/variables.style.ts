@@ -17,17 +17,9 @@ export const color: IVariables = {
 };
 
 export const media: IVariables = {
-  smM: 'max-width: 321px',
-  custom1: 'min-width: 500px',
-  custom2: 'min-width: 559px',
-  custom3: 'min-width: 740px',
   sm: 'min-width: 768px',
-  custom4: 'min-width: 769px',
   md: 'min-width: 1024px',
-  custom5: 'min-width: 1025px',
-  custom6: 'min-width: 1160px',
-  lgM: 'min-width: 1366px',
-  lg: 'min-width: 1367px',
+  lg: 'min-width: 1366px',
 };
 
 export const anim: IVariables = {
