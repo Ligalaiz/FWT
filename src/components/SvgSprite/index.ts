@@ -1,0 +1,1 @@
+export { SvgSprite } from './SvgSprite';

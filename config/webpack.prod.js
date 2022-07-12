@@ -1,7 +1,6 @@
 const { merge } = require('webpack-merge');
 const { join } = require('path');
 const ESLintPlugin = require('eslint-webpack-plugin');
-// const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const common = require('./webpack.common');
@@ -27,13 +26,6 @@ module.exports = merge(common, {
       {
         test: /\.(sa|sc|c)ss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
-      },
-      {
-        test: /\.(gif|png|jpe?g|webp|svg)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: 'assets/img/[name].[contenthash:10][ext]',
-        },
       },
     ],
   },
