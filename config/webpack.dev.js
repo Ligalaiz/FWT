@@ -30,17 +30,6 @@ module.exports = merge(common, {
         test: /\.(sa|sc|c)ss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
       },
-      {
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
-      },
-      {
-        test: /\.(gif|png|jpe?g|webp)$/i,
-        type: 'asset/resource',
-        generator: {
-          filename: 'assets/img/[name].[contenthash:10][ext]',
-        },
-      },
     ],
   },
   devServer: {

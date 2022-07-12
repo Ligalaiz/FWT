@@ -22,10 +22,17 @@ module.exports = {
         },
       },
       {
-        test: /\.(gif|png|jpe?g|webp)$/i,
+        test: /\.(gif|png|jpe?g|webp|svg)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'assets/img/[name].[contenthash:10][ext]',
+        },
+      },
+      {
+        test: /\.svg$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/img/[name].svg',
         },
       },
       {

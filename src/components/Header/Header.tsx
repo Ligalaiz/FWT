@@ -1,7 +1,6 @@
 import React from 'react';
 import * as h from './Header.style';
-import Logo from '@assets/img/logo.svg';
-import Theme from '@assets/img/theme.svg';
+import { SvgSprite } from '@components/SvgSprite';
 
 const Header = () => {
   return (
@@ -9,11 +8,11 @@ const Header = () => {
       <div css={h.headerContainer}>
         <div css={h.headerLogo}>
           <a css={h.headerLink} href="#top">
-            <Logo />
+            <SvgSprite id="logo" />
           </a>
         </div>
         <div css={h.headerTheme}>
-          <Theme />
+          <SvgSprite id="theme" />
         </div>
       </div>
     </header>
