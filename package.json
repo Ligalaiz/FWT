@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config config/webpack.prod.js",
-    "start:client": "webpack serve --config config/webpack.dev.js",
+    "start:client": "npm run clean && webpack serve --config config/webpack.dev.js",
     "lint": "eslint ./src --cache",
     "lint:fix": "eslint ./src  --fix",
     "clean": "rm -rf dist",
