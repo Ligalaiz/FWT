@@ -1,9 +1,7 @@
 import React from 'react';
 import { loader } from './LoaderStyle';
 
-const Loader = (isLoading: boolean) => {
-  if (!isLoading) return null;
-
+const Loader = () => {
   return <div css={loader} />;
 };
 
