@@ -15,7 +15,8 @@
     "test:test": "jest --forceExit --t=#test",
     "test:coverage": "jest --coverage",
     "check": "npm run lint && npm test",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "server": "json-server --w ./server/index.js --port 3001"
   },
   "repository": {
     "type": "git",
@@ -98,6 +99,7 @@
     "imagemin-svgo": "^9.0.0",
     "jest": "^27.0.6",
     "jest-localstorage-mock": "^2.4.17",
+    "json-server": "^0.17.0",
     "lint-staged": "^11.2.3",
     "mini-css-extract-plugin": "^2.4.3",
     "npm": "^8.3.2",
