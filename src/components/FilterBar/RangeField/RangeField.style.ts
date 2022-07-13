@@ -69,6 +69,8 @@ export const createdList = css`
 
   background-color: ${color['white-color']};
 
+  z-index: 1;
+
   @media (min-width: 500px) {
     flex-direction: column;
   }
