@@ -86,9 +86,9 @@ export const globalStyle = css`
 
   .container {
     width: 100%;
-    max-width: 102.4rem;
+    max-width: 116rem;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 2rem;
   }
 
   .wrapper {
