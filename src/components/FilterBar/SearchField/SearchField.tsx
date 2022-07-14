@@ -1,11 +1,12 @@
-import React, { Dispatch, SetStateAction, ChangeEvent } from 'react';
+import React, { Dispatch, SetStateAction, ChangeEvent, KeyboardEvent } from 'react';
 import * as s from './SearchField.style';
 
 interface ISearchField {
   searchValue: string;
   setSearchValue: Dispatch<SetStateAction<string>>;
+  request: (e: KeyboardEvent<HTMLInputElement>) => void;
 }
-const SearchField = ({ searchValue, setSearchValue }: ISearchField) => {
+const SearchField = ({ searchValue, setSearchValue, request }: ISearchField) => {
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target as typeof e.target & {
       value: string;
@@ -18,6 +19,7 @@ const SearchField = ({ searchValue, setSearchValue }: ISearchField) => {
       <input
         value={searchValue}
         onChange={handleChange}
+        onKeyDown={request}
         css={s.searchField}
         type="text"
         name="name"
