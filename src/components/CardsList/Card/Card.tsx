@@ -1,5 +1,4 @@
-import React, { MouseEvent } from 'react';
-import paint from '@assets/img/painting.png';
+import React from 'react';
 import * as c from './Card.style';
 
 interface IData {
@@ -18,23 +17,27 @@ interface ICard {
   cardData: IData;
 }
 
+const basePath = process.env.BASE_PATH_REMOTE;
+
 const Card = ({ cardData }: ICard) => {
+  const { name, author, created, location, imageUrl } = cardData;
+
   return (
     <div css={c.card}>
       <div css={c.cardImage}>
-        <img css={c.image} src={paint} alt="" />
+        <img css={c.image} src={`${basePath}${imageUrl}`} alt={name} />
       </div>
       <div css={c.cardPromo} className="promoCard">
-        <p css={c.cardTitle}>The presistence Of Memory</p>
+        <p css={c.cardTitle}>{name}</p>
         <div css={c.cardDesc}>
           <p css={c.descItem}>
-            <span css={c.descTitle}>Author:</span> Rembrant
+            <span css={c.descTitle}>Author:</span> {author}
           </p>
           <p css={c.descItem}>
-            <span css={c.descTitle}>Created:</span> 1642
+            <span css={c.descTitle}>Created:</span> {created}
           </p>
           <p css={c.descItem}>
-            <span css={c.descTitle}>Location:</span> The Rijksmuseum
+            <span css={c.descTitle}>Location:</span> {location}
           </p>
         </div>
       </div>
