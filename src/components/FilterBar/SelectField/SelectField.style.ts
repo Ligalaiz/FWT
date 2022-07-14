@@ -83,6 +83,7 @@ export const dropDownListWrap = css`
 
   background-color: ${color['white-color']};
   overflow: hidden;
+  z-index: 81;
 
   @media (${media.sm}) {
     border-radius: 0 0 0.8rem 0.8rem;
@@ -109,7 +110,6 @@ export const dropDownList = css`
 
   background-color: ${color['white-color']};
   overflow: overlay;
-  z-index: 100;
 
   &::-webkit-scrollbar {
     width: 16px;
@@ -170,7 +170,6 @@ export const dropDownItem = css`
   @media (${media.sm}) {
     padding: 0.5rem 0.3rem 0.5rem 1.5rem;
 
-    max-width: 20.9rem;
     text-overflow: ellipsis;
     white-space: nowrap;
     max-width: 14.5rem;
