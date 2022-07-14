@@ -23,6 +23,7 @@ export const createdBtn = css`
     border-radius: 0.8rem 0.8rem 0 0;
     border-bottom: none;
     border: 1px solid ${color['black-color']};
+    border-bottom: none;
 
     &:before {
       content: ' ';
@@ -54,6 +55,7 @@ export const createdArrow = css`
 
 export const createdList = css`
   position: absolute;
+  top: 99%;
 
   display: flex;
   gap: 0.5rem;
@@ -69,7 +71,7 @@ export const createdList = css`
 
   background-color: ${color['white-color']};
 
-  z-index: 1;
+  z-index: 81;
 
   @media (min-width: 500px) {
     flex-direction: column;
