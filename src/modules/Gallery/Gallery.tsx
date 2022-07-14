@@ -6,7 +6,6 @@ import { request } from '@src/module';
 import { delay, serializeData, filterData } from '@src/utils';
 import { Message } from '@components/Message';
 import { CardsList } from '@components/CardsList';
-import { Pagination } from '@components/Pagination';
 
 interface IData {
   authorId: number;
@@ -109,7 +108,6 @@ const Gallery = () => {
           setSelectedBefore={setSelectedBefore}
         />
         <CardsList isLoading={isLoading} paintsData={data} />
-        <Pagination />
       </main>
 
       {error && <Message content={error.message} err />}
