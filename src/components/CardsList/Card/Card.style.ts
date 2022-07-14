@@ -21,13 +21,16 @@ export const card = css`
     }
   }
 
-  @media (${media.sm}) {
+  @media (min-width: 578px) {
     max-width: 34rem;
   }
 
   @media (${media.sm}) {
+    max-width: 34rem;
+  }
+
+  @media (${media.md}) {
     max-width: 36rem;
-    border-radius: 2rem;
   }
 `;
 
@@ -36,6 +39,10 @@ export const cardImage = css`
 
   width: 100%;
   padding-bottom: 20.5rem;
+
+  @media (min-width: 578px) {
+    padding-bottom: 24.9rem;
+  }
 
   @media (${media.sm}) {
     padding-bottom: 24.9rem;
@@ -84,11 +91,23 @@ export const cardTitle = css`
   font-size: 1.8rem;
   line-height: 1.11;
   text-transform: capitalize;
+  white-space: nowrap;
+  max-width: 23rem;
+  overflow: hidden;
+
+  @media (${media.sm}) {
+    max-width: 30.5rem;
+  }
 `;
 
 export const cardDesc = css`
   position: absolute;
   top: 3rem;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.3rem;
+  padding-left: 0.2rem;
 
   font-weight: 700;
   font-size: 1.8rem;
