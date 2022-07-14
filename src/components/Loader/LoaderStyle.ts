@@ -5,8 +5,9 @@ export const loader = css`
   width: 3.2rem;
   height: 3.2rem;
   border-radius: 50%;
-  border: 6px solid ${color['red-color']};
-  border-color: ${color['red-color']} transparent ${color['red-color']} transparent;
+  border: 6px solid ${color['black-color']};
+  border-color: ${color['black-color']} transparent ${color['black-color']} transparent;
+  margin: 0 auto;
 
   animation: lds-dual-ring 1.2s linear infinite;
 
