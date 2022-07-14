@@ -6,6 +6,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --config config/webpack.prod.js",
+    "dev": "concurrently \"npm run server\" \"npm run start:client\"",
     "start:client": "npm run clean && webpack serve --config config/webpack.dev.js",
     "lint": "eslint ./src --cache",
     "lint:fix": "eslint ./src  --fix",
@@ -16,7 +17,7 @@
     "test:coverage": "jest --coverage",
     "check": "npm run lint && npm test",
     "prepare": "husky install",
-    "server": "json-server --w ./server/index.js --port 3001"
+    "server": "json-server -w ./server/index.js -p 3001"
   },
   "repository": {
     "type": "git",
@@ -73,6 +74,7 @@
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "*",
     "compile-ejs-loader": "^0.0.3",
+    "concurrently": "^7.2.2",
     "css-loader": "^6.2.0",
     "css-minimizer-webpack-plugin": "^3.4.1",
     "cssnano": "^5.0.7",
