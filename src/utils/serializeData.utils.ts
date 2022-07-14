@@ -29,12 +29,18 @@ interface IData {
   [key: string]: string | number;
 }
 
+interface IResult {
+  data: IData[];
+  locations: { [key: string]: string };
+  authors: { [key: string]: string };
+}
+
 interface IAcc {
   [key: string]: string;
 }
 
-const serializeData = ({ resPaints, resLocations, resAuthors }: ISerializeData): IData[] => {
-  const locationMap = resLocations.reduce(
+const serializeData = ({ resPaints, resLocations, resAuthors }: ISerializeData): IResult => {
+  const locationsMap = resLocations.reduce(
     (
       acc: IAcc,
       cur: {
@@ -62,9 +68,15 @@ const serializeData = ({ resPaints, resLocations, resAuthors }: ISerializeData):
     {},
   );
 
-  return resPaints.reduce((acc: IData[], item: IResPaints) => {
-    return [...acc, { ...item, author: authorsMap[item.authorId], location: locationMap[item.locationId] }];
+  const data = resPaints.reduce((acc: IData[], item: IResPaints) => {
+    return [...acc, { ...item, author: authorsMap[item.authorId], location: locationsMap[item.locationId] }];
   }, []);
+
+  return {
+    data,
+    locations: locationsMap,
+    authors: authorsMap,
+  };
 };
 
 export { serializeData };
