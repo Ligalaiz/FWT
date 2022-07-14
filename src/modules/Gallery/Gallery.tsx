@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import * as g from './Gallery.style';
 import { Header } from '@components/Header';
 import { FilterBar } from '@components/FilterBar';
-import { Loader } from '@components/Loader';
 import { request } from '@src/module';
-import { delay, serializeData } from '@src/utils';
+import { delay, serializeData, filterData } from '@src/utils';
 import { Message } from '@components/Message';
 import { CardsList } from '@components/CardsList';
 import { Pagination } from '@components/Pagination';
@@ -21,53 +20,25 @@ interface IData {
   [key: string]: string | number;
 }
 
-const fakeData = [
-  {
-    author: 'Ivan Aivazovsky',
-    authorId: 1,
-    created: '1850',
-    id: 1,
-    imageUrl: '/images/The_ninth_wave.jpeg',
-    location: 'Russian Museum',
-    locationId: 1,
-    name: 'The ninth wave',
-  },
-  {
-    author: 'François Boucher',
-    authorId: 2,
-    created: '1747',
-    id: 2,
-    imageUrl: '/images/L_Enlevement_d_Europe.jpeg',
-    location: 'Louvre',
-    locationId: 2,
-    name: 'L`Enlévement d`Europe',
-  },
-  {
-    author: 'Ivan Aivazovsky',
-    authorId: 1,
-    created: '1850',
-    id: 3,
-    imageUrl: '/images/The_ninth_wave.jpeg',
-    location: 'Russian Museum',
-    locationId: 1,
-    name: 'The ninth wave',
-  },
-  {
-    author: 'François Boucher',
-    authorId: 2,
-    created: '1747',
-    id: 4,
-    imageUrl: '/images/L_Enlevement_d_Europe.jpeg',
-    location: 'Louvre',
-    locationId: 2,
-    name: 'L`Enlévement d`Europe',
-  },
-];
+interface ILocations {
+  [key: string]: string;
+}
+
+interface IAuthors {
+  [key: string]: string;
+}
 
 const Gallery = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState<IData[]>([]);
+  const [locations, setSocations] = useState<ILocations | null>(null);
+  const [authors, setAuthors] = useState<IAuthors | null>(null);
   const [error, setError] = useState<null | { message: string }>(null);
+  const [searchValue, setSearchValue] = useState('');
+  const [selectedFrom, setSelectedFrom] = useState('');
+  const [selectedAuthor, setSelectedAuthor] = useState('');
+  const [selectedBefore, setSelectedBefore] = useState('');
+  const [selectedLocation, setSelectedLocation] = useState('');
 
   useEffect(() => {
     getData();
@@ -85,9 +56,23 @@ const Gallery = () => {
 
       delay(() => {
         if (resPaints && resLocations && resAuthors) {
-          const serializedData = serializeData({ resPaints, resLocations, resAuthors });
-          setData(serializedData);
-          console.log({ serializedData });
+          const {
+            data: serData,
+            locations: serLocations,
+            authors: serAuthors,
+          } = serializeData({ resPaints, resLocations, resAuthors });
+          setData(
+            filterData({
+              data: serData,
+              searchValue,
+              selectedLocation,
+              selectedAuthor,
+              selectedFrom,
+              selectedBefore,
+            }),
+          );
+          setSocations(serLocations);
+          setAuthors(serAuthors);
         }
 
         setIsLoading(false);
@@ -108,11 +93,25 @@ const Gallery = () => {
     <>
       <Header />
       <main css={g.main}>
-        <FilterBar getData={getData} />
-        <CardsList paintsData={fakeData} />
+        <FilterBar
+          searchValue={searchValue}
+          selectedLocation={selectedLocation}
+          selectedAuthor={selectedAuthor}
+          selectedFrom={selectedFrom}
+          selectedBefore={selectedBefore}
+          locations={locations}
+          authors={authors}
+          getData={getData}
+          setSearchValue={setSearchValue}
+          setSelectedLocation={setSelectedLocation}
+          setSelectedAuthor={setSelectedAuthor}
+          setSelectedFrom={setSelectedFrom}
+          setSelectedBefore={setSelectedBefore}
+        />
+        <CardsList isLoading={isLoading} paintsData={data} />
         <Pagination />
       </main>
-      {isLoading && <Loader />}
+
       {error && <Message content={error.message} err />}
     </>
   );
