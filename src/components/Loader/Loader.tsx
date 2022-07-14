@@ -1,10 +1,12 @@
 import React from 'react';
 import { loader } from './LoaderStyle';
 
-const Loader = (isLoading: boolean) => {
-  if (!isLoading) return null;
-
-  return <div css={loader} />;
+const Loader = () => {
+  return (
+    <div className="container">
+      <div css={loader} />
+    </div>
+  );
 };
 
 export { Loader };

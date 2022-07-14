@@ -48,6 +48,7 @@ export const globalStyle = css`
     overflow: -moz-scrollbars-vertical;
     overflow-y: auto;
     overflow-x: hidden;
+    height: 100%;
 
     &:focus-within {
       scroll-behavior: smooth;
@@ -86,13 +87,14 @@ export const globalStyle = css`
 
   .container {
     width: 100%;
-    max-width: 102.4rem;
+    max-width: 116rem;
     margin: 0 auto;
-    padding: 0 1.5rem;
+    padding: 0 2rem;
   }
 
   .wrapper {
     min-width: 32rem;
+    height: 100%;
   }
 
   input:focus {
@@ -102,6 +104,7 @@ export const globalStyle = css`
   body {
     position: relative;
 
+    height: 100%;
     margin: 0;
     padding: 0;
 
@@ -176,5 +179,9 @@ export const globalStyle = css`
   input:-webkit-autofill:focus,
   input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 3rem ${color['white-color']}; inset !important;
+  }
+
+  #root {
+    height: 100%;
   }
 `;
