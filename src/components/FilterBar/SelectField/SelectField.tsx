@@ -5,14 +5,12 @@ import * as s from './SelectField.style';
 const queries = ['(max-width: 499px)'];
 
 interface IOptions {
-  id: number;
-  name?: string;
-  location?: string;
+  [key: string]: string;
 }
 
 interface ISelectedField {
   name: string;
-  options: IOptions[];
+  options: IOptions | null;
   selected: string;
   setSelected: Dispatch<SetStateAction<string>>;
 }
@@ -41,8 +39,6 @@ const SelectField = ({ name, options, selected, setSelected }: ISelectedField) =
     setSelected('');
   };
 
-  const val = name === 'Author' ? 'name' : 'location';
-
   return (
     <div css={s.dropDown} className={isOrderFirst ? 'active' : ''}>
       <div css={s.dropDownBtn} onClick={handleDropDownBtnClick} className={isActive ? 'active' : ''}>
@@ -55,12 +51,15 @@ const SelectField = ({ name, options, selected, setSelected }: ISelectedField) =
       {isActive && (
         <div css={s.dropDownListWrap}>
           <ul className="reset-list" css={s.dropDownList}>
-            {options &&
-              options.map((item) => (
-                <li onClick={handleDropDownItemClick} css={s.dropDownItem} key={item.id}>
-                  {item[val]}
+            {options ? (
+              Object.keys(options).map((key) => (
+                <li onClick={handleDropDownItemClick} css={s.dropDownItem} key={key}>
+                  {options[key]}
                 </li>
-              ))}
+              ))
+            ) : (
+              <li css={s.dropDownItem}>Not Found</li>
+            )}
           </ul>
         </div>
       )}
