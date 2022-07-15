@@ -1,4 +1,4 @@
-import React, { useState, KeyboardEvent, FormEvent, Dispatch, SetStateAction } from 'react';
+import React, { KeyboardEvent, Dispatch, SetStateAction } from 'react';
 import * as f from './FilterBar.style';
 import { SearchField } from '@components/FilterBar/SearchField';
 import { SelectField } from '@components/FilterBar/SelectField';
