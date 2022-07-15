@@ -21,6 +21,14 @@ const AppRouter: FC = () => {
             }
           />
           <Route
+            path="/:id"
+            element={
+              <CSSTransition in={match != null} timeout={1000} key={uuid()}>
+                <Gallery />
+              </CSSTransition>
+            }
+          />
+          <Route
             path="*"
             element={
               <CSSTransition in={match != null} timeout={1000} key={uuid()}>
