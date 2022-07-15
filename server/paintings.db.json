@@ -1,0 +1,266 @@
+[
+  {
+    "authorId": 1,
+    "created": "1850",
+    "id": 1,
+    "imageUrl": "/images/The_ninth_wave.jpeg",
+    "locationId": 1,
+    "name": "The ninth wave"
+  },
+  {
+    "authorId": 2,
+    "created": "1747",
+    "id": 2,
+    "imageUrl": "/images/L_Enlevement_d_Europe.jpeg",
+    "locationId": 2,
+    "name": "L`Enlévement d`Europe"
+  },
+  {
+    "authorId": 3,
+    "created": "1472",
+    "id": 3,
+    "imageUrl": "/images/Annunciation.jpg",
+    "locationId": 3,
+    "name": "Annunciation"
+  },
+  {
+    "authorId": 4,
+    "created": "1892",
+    "id": 4,
+    "imageUrl": "/images/Evening_on_Karl_Johan_Street.jpg",
+    "locationId": 4,
+    "name": "Evening on Karl Johan Street"
+  },
+  {
+    "authorId": 5,
+    "created": "1662",
+    "id": 5,
+    "imageUrl": "/images/Syndics_of_the_Drapers_Guild.jpg",
+    "locationId": 5,
+    "name": "Syndics of the Drapers' Guild"
+  },
+  {
+    "authorId": 2,
+    "created": "1746",
+    "id": 6,
+    "imageUrl": "/images/The_Toilet_Of_Venus.jpeg",
+    "locationId": 6,
+    "name": "The Toilet Of Venus"
+  },
+  {
+    "authorId": 4,
+    "created": "1889",
+    "id": 7,
+    "imageUrl": "/images/Summer_night_Inger_on_the_beach.jpg",
+    "locationId": 7,
+    "name": "The"
+  },
+  {
+    "authorId": 4,
+    "created": "1916",
+    "id": 8,
+    "imageUrl": "/images/The_sun.jpeg",
+    "locationId": 8,
+    "name": "The sun"
+  },
+  {
+    "authorId": 6,
+    "created": "1890",
+    "id": 9,
+    "imageUrl": "/images/Field_with_poppies.jpeg",
+    "locationId": 9,
+    "name": "Field with poppies"
+  },
+  {
+    "authorId": 7,
+    "created": "1483",
+    "id": 10,
+    "imageUrl": "/images/The_Story_of_Nastagio_Degli_Onesti_IV.jpeg",
+    "locationId": 10,
+    "name": "The Story of Nastagio Degli Onesti, part four"
+  },
+  {
+    "authorId": 5,
+    "created": "1665",
+    "id": 11,
+    "imageUrl": "/images/TheJewishBride.jpg",
+    "locationId": 5,
+    "name": "The Jewish Bride"
+  },
+  {
+    "authorId": 5,
+    "created": "1613",
+    "id": 12,
+    "imageUrl": "/images/The_Anatomy_Lesson_of_Dr_Nicolaes_Tulp.jpg",
+    "locationId": 11,
+    "name": "The Anatomy Lesson of Dr. Nicolaes Tulp"
+  },
+  {
+    "authorId": 7,
+    "created": "1481",
+    "id": 13,
+    "imageUrl": "/images/The_Anatomy_Lesson_of_Dr_Nicolaes_Tulp.jpg",
+    "locationId": 12,
+    "name": "Temptations of Christ"
+  },
+  {
+    "authorId": 7,
+    "created": "1483",
+    "id": 14,
+    "imageUrl": "/images/The_Story_of_Nastagio_Degli_Onesti_II.jpeg",
+    "locationId": 13,
+    "name": "The Story of Nastagio Degli Onesti, part two"
+  },
+  {
+    "authorId": 8,
+    "created": "1889",
+    "id": 15,
+    "imageUrl": "/images/Morning_in_a_pine_forest.jpeg",
+    "locationId": 14,
+    "name": "Morning in a pine forest"
+  },
+  {
+    "authorId": 1,
+    "created": "1885",
+    "id": 16,
+    "imageUrl": "/images/Calm.jpeg",
+    "locationId": 10,
+    "name": "Calm"
+  },
+  {
+    "authorId": 9,
+    "created": "1617",
+    "id": 17,
+    "imageUrl": "/images/Pan_and_Syrinx.jpeg",
+    "locationId": 15,
+    "name": "Pan and Syrinx"
+  },
+  {
+    "authorId": 8,
+    "created": "1860",
+    "id": 18,
+    "imageUrl": "/images/Village_courtyard.jpeg",
+    "locationId": 1,
+    "name": "Village courtyard"
+  },
+  {
+    "authorId": 8,
+    "created": "1872",
+    "id": 19,
+    "imageUrl": "/images/Sosnovyy_Bor_Mast_timber_in_Vyatka_province.jpeg",
+    "locationId": 14,
+    "name": "Sosnovyy Bor. Mast timber in Vyatka province"
+  },
+  {
+    "authorId": 7,
+    "created": "1613",
+    "id": 20,
+    "imageUrl": "/images/The_Birth_of_Venus.jpeg",
+    "locationId": 3,
+    "name": "The Birth of Venus"
+  },
+  {
+    "authorId": 9,
+    "created": "1613",
+    "id": 21,
+    "imageUrl": "/images/Jupiter_and_Callisto.jpeg",
+    "locationId": 15,
+    "name": "Jupiter and Callisto"
+  },
+  {
+    "authorId": 1,
+    "created": "1841",
+    "id": 22,
+    "imageUrl": "/images/Azure_grotto_Naples.jpeg",
+    "locationId": 16,
+    "name": "Azure grotto. Naples"
+  },
+  {
+    "authorId": 2,
+    "created": "1745",
+    "id": 23,
+    "imageUrl": "/images/Dark-haired_odalisque.jpeg",
+    "locationId": 2,
+    "name": "Dark-haired odalisque"
+  },
+  {
+    "authorId": 6,
+    "created": "1888",
+    "id": 24,
+    "imageUrl": "/images/Seascape_at_Saintes-Maries-de-La-Mer.jpeg",
+    "locationId": 17,
+    "name": "Seascape at Saintes-Maries-de-La-Mer"
+  },
+  {
+    "authorId": 2,
+    "created": "1752",
+    "id": 25,
+    "imageUrl": "/images/The_Blonde_Odalisque.jpg",
+    "locationId": 18,
+    "name": "The Blonde Odalisque"
+  },
+  {
+    "authorId": 2,
+    "created": "1735",
+    "id": 26,
+    "imageUrl": "/images/Landliche_Idylle.jpeg",
+    "locationId": 18,
+    "name": "Ländliche Idylle"
+  },
+  {
+    "authorId": 4,
+    "created": "1895",
+    "id": 27,
+    "imageUrl": "/images/Moonlight.jpeg",
+    "locationId": 19,
+    "name": "Moonlight"
+  },
+  {
+    "authorId": 3,
+    "created": "1490",
+    "id": 28,
+    "imageUrl": "/images/TheLastSupper.jpeg",
+    "locationId": 20,
+    "name": "The Last Supper"
+  },
+  {
+    "authorId": 5,
+    "created": "1642",
+    "id": 29,
+    "imageUrl": "/images/TheNightWatch.jpg",
+    "locationId": 5,
+    "name": "The Night Watch"
+  },
+  {
+    "authorId": 6,
+    "created": "1889",
+    "id": 30,
+    "imageUrl": "/images/LilacBush.jpeg",
+    "locationId": 21,
+    "name": "Lilac Bush"
+  },
+  {
+    "authorId": 9,
+    "created": "1610",
+    "id": 31,
+    "imageUrl": "/images/PanReclining.jpeg",
+    "locationId": 10,
+    "name": "Pan Reclining"
+  },
+  {
+    "authorId": 7,
+    "created": "1488",
+    "id": 32,
+    "imageUrl": "/images/The_altar_of_St_Barnabas.jpeg",
+    "locationId": 3,
+    "name": "The altar of St. Barnabas"
+  },
+  {
+    "authorId": 6,
+    "created": "1889",
+    "id": 33,
+    "imageUrl": "/images/TheStarryNight.jpeg",
+    "locationId": 22,
+    "name": "The Starry Night"
+  }
+]

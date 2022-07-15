@@ -1,9 +1,14 @@
 import { css } from '@emotion/react';
-import { media } from '@src/styles';
+import { color, media } from '@src/styles';
 
 export const header = css`
   position: fixed;
   width: 100%;
+  z-index: 100;
+
+  &.active {
+    background: ${color['gray-color-light-x1']};
+  }
 `;
 
 export const headerContainer = css`
@@ -26,7 +31,7 @@ export const headerContainer = css`
   }
 
   @media (${media.md}) {
-    padding: 3.3rem 2.6rem 3.5rem 4rem;
+    padding: 3.3rem 3.4rem 3.5rem 3.4rem;
     max-width: 116rem;
   }
 

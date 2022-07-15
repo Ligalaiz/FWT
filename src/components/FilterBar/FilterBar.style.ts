@@ -2,6 +2,7 @@ import { css } from '@emotion/react';
 
 export const filterBarWrap = css`
   padding: 0 2rem;
+  margin-bottom: 1.5rem;
 
   @media (min-width: 1160px) {
     padding: 0;
