@@ -1,76 +1,82 @@
-import React, { useEffect, useState, MouseEvent } from 'react';
+import React, { useEffect, MouseEvent, useContext, Context, useState, useMemo } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 import * as g from './Gallery.style';
-import { Header } from '@components/Header';
-import { FilterBar } from '@components/FilterBar';
 import { request } from '@src/module';
-import { delay, serializeData, filterData } from '@src/utils';
+import { Header } from '@components/Header';
 import { Message } from '@components/Message';
+import { IAppContext } from '@src/store/context';
+import { FilterBar } from '@components/FilterBar';
 import { CardsList } from '@components/CardsList';
 import { Pagination } from '@components/Pagination';
+import { delay, serializeData, filterData, createPagArray } from '@src/utils';
 
-interface IData {
-  authorId: number;
-  created: string;
-  id: number;
-  imageUrl: string;
-  locationId: number;
-  name: string;
-  author: string;
-  location: string;
-  [key: string]: string | number;
+interface IGallery {
+  appcontext: Context<IAppContext>;
 }
 
-interface ILocations {
-  [key: string]: string;
-}
-
-interface IAuthors {
-  [key: string]: string;
-}
-
-const Gallery = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState<IData[]>([]);
-  const [locations, setLocations] = useState<ILocations | null>(null);
-  const [authors, setAuthors] = useState<IAuthors | null>(null);
-  const [error, setError] = useState<null | { message: string }>(null);
-  const [searchValue, setSearchValue] = useState('');
-  const [selectedFrom, setSelectedFrom] = useState('');
-  const [selectedAuthor, setSelectedAuthor] = useState('');
-  const [selectedBefore, setSelectedBefore] = useState('');
-  const [selectedLocation, setSelectedLocation] = useState('');
-  const { id } = useParams();
+const Gallery = ({ appcontext }: IGallery) => {
+  const {
+    searchActions: {
+      setData,
+      setError,
+      setAuthors,
+      setLocations,
+      setIsLoading,
+      setCurrentPage,
+      setSearchValue,
+      setSelectedFrom,
+      setSelectedAuthor,
+      setSelectedBefore,
+      setSelectedLocation,
+    },
+    searchState: {
+      data,
+      error,
+      currentPage,
+      searchValue,
+      selectedFrom,
+      itemsPerPage,
+      selectedBefore,
+      selectedAuthor,
+      selectedLocation,
+    },
+  } = useContext(appcontext);
   const [searchParams, setSearchParams] = useSearchParams();
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(12);
-
+  const [currentPagArr, setCurrentPagArr] = useState<number[]>([]);
+  const { id } = useParams();
   const lastItem = currentPage * itemsPerPage;
   const firstItem = lastItem - itemsPerPage;
-  const currentPages = filterData({
+  const filtredPaints = filterData({
     data,
     searchValue,
-    selectedLocation,
-    selectedAuthor,
     selectedFrom,
     selectedBefore,
-  }).slice(firstItem, lastItem);
-  const pageCount = Math.ceil(currentPages.length / itemsPerPage);
-  const paginationArr = Array.from(Array(pageCount), (_, i) => i + 1);
+    selectedAuthor,
+    selectedLocation,
+  });
+
+  const pageCount = Math.ceil(filtredPaints.length / itemsPerPage);
+  const paginationArr = useMemo(() => Array.from(Array(pageCount), (_, i) => i + 1), [pageCount]);
+  const currentRenderPaints = filtredPaints.slice(firstItem, lastItem);
 
   const handlePaginationClick = (e: MouseEvent<HTMLAnchorElement>) => {
     const page = e.currentTarget.getAttribute('data-page');
 
     if (page === 'firstPage') setCurrentPage(1);
-    if (page === 'prevPage' && currentPage > 1) setCurrentPage(currentPage - 1);
-    if (page === 'nextPage' && currentPage < pageCount) setCurrentPage(currentPage + 1);
+    if (page === 'prevPage' && currentPage > 1) {
+      setCurrentPage(+currentPage - 1);
+    }
+
+    if (page === 'nextPage' && currentPage < pageCount) {
+      setCurrentPage(+currentPage + 1);
+    }
+
     if (page === 'lastPage') setCurrentPage(pageCount);
     if (page?.match(/page-/g)) setCurrentPage(+page.split('-')[1]);
-    console.log({ id });
   };
 
   useEffect(() => {
+    setCurrentPage(id ? +id : 1);
     setSearchValue(searchParams.get('search') || '');
     setSelectedFrom(searchParams.get('from') || '');
     setSelectedAuthor(searchParams.get('author') || '');
@@ -88,13 +94,17 @@ const Gallery = () => {
       before: selectedBefore,
       location: selectedLocation,
     });
-  }, [searchValue, selectedFrom, selectedAuthor, selectedBefore, selectedLocation]);
+  }, [searchValue, selectedFrom, selectedAuthor, selectedBefore, selectedLocation, setSearchParams]);
+
+  useEffect(() => {
+    setCurrentPagArr(createPagArray(paginationArr, currentPage));
+  }, [currentPage, paginationArr]);
 
   const getData = async () => {
     setIsLoading(true);
 
     const run = async () => {
-      const requests = [request('paintings'), request('locations'), request('authors')];
+      const requests = [request('paintings', setError), request('locations', setError), request('authors', setError)];
 
       const [resPaints, resLocations, resAuthors] = await Promise.all(
         requests.map((p) => p.catch((err) => console.log(err))),
@@ -131,30 +141,15 @@ const Gallery = () => {
     <>
       <Header />
       <main css={g.main}>
-        <FilterBar
-          searchValue={searchValue}
-          selectedLocation={selectedLocation}
-          selectedAuthor={selectedAuthor}
-          selectedFrom={selectedFrom}
-          selectedBefore={selectedBefore}
-          locations={locations}
-          authors={authors}
-          getData={getData}
-          setSearchValue={setSearchValue}
-          setSelectedLocation={setSelectedLocation}
-          setSelectedAuthor={setSelectedAuthor}
-          setSelectedFrom={setSelectedFrom}
-          setSelectedBefore={setSelectedBefore}
-        />
-        <CardsList isLoading={isLoading} paintsData={currentPages} />
+        <FilterBar appcontext={appcontext} />
+        <CardsList appcontext={appcontext} paintsData={currentRenderPaints} />
         <Pagination
-          paginationArr={paginationArr}
+          appcontext={appcontext}
+          paginationArr={currentPagArr}
           handleClick={handlePaginationClick}
-          currentPage={currentPage}
           lastPage={pageCount}
         />
       </main>
-
       {error && <Message content={error.message} err />}
     </>
   );
