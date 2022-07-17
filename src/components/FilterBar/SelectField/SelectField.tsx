@@ -1,24 +1,66 @@
-import React, { useState, MouseEvent, Dispatch, SetStateAction } from 'react';
+import React, { useState, MouseEvent, useContext, Context, Dispatch, SetStateAction } from 'react';
 import useMatchMedia from 'use-match-media-hook';
+import { useLocation, useNavigate } from 'react-router-dom';
 import * as s from './SelectField.style';
+import { IAppContext } from '@src/store/context';
 
 const queries = ['(max-width: 499px)'];
 
-interface IOptions {
+export interface ILocations {
   [key: string]: string;
 }
 
-interface ISelectedField {
-  name: string;
-  options: IOptions | null;
+export interface IAuthors {
+  [key: string]: string;
+}
+
+interface IAuthor {
+  options: IAuthors | null;
   selected: string;
   setSelected: Dispatch<SetStateAction<string>>;
 }
 
-const SelectField = ({ name, options, selected, setSelected }: ISelectedField) => {
+interface ILocation {
+  options: ILocations | null;
+  selected: string;
+  setSelected: Dispatch<SetStateAction<string>>;
+}
+
+interface IFieldlMap {
+  Author: IAuthor;
+  Location: ILocation;
+  [key: string]: IAuthor | ILocation;
+}
+
+interface ISelectedField {
+  name: string;
+  appcontext: Context<IAppContext>;
+}
+
+const SelectField = ({ name, appcontext }: ISelectedField) => {
   const [isActive, setIsActive] = useState(false);
   const [isOrderFirst, setIsOrderFirst] = useState(false);
   const [mobile] = useMatchMedia(queries);
+  const {
+    searchActions: { setCurrentPage, setSelectedLocation, setSelectedAuthor },
+    searchState: { selectedLocation, selectedAuthor, locations, authors },
+  } = useContext(appcontext);
+  const { search } = useLocation();
+  const navigate = useNavigate();
+  const fiedlMap: IFieldlMap = {
+    Author: {
+      options: authors,
+      selected: selectedAuthor,
+      setSelected: setSelectedAuthor,
+    },
+    Location: {
+      options: locations,
+      selected: selectedLocation,
+      setSelected: setSelectedLocation,
+    },
+  };
+
+  const { options, selected, setSelected } = fiedlMap[name];
 
   const handleDropDownBtnClick = () => {
     setIsActive(!isActive);
@@ -29,9 +71,12 @@ const SelectField = ({ name, options, selected, setSelected }: ISelectedField) =
     const { textContent } = e.target as typeof e.target & {
       textContent: string;
     };
+
     setSelected(textContent);
     setIsActive(false);
     if (mobile) setIsOrderFirst(!isOrderFirst);
+    navigate(`/1${search}`);
+    setCurrentPage(1);
   };
 
   const handleDropDownCancelClick = (e: MouseEvent<HTMLButtonElement>) => {
