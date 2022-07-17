@@ -1,31 +1,43 @@
-import React, { MouseEvent } from 'react';
-import { Link } from 'react-router-dom';
+import React, { MouseEvent, Context, useContext } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import * as p from './Pagination.style';
+import { IAppContext } from '@src/store/context';
 
 interface IPagination {
-  currentPage: number;
+  appcontext: Context<IAppContext>;
   paginationArr: number[];
   lastPage: number;
   handleClick: (e: MouseEvent<HTMLAnchorElement>) => void;
 }
 
-const Pagination = ({ paginationArr, handleClick, currentPage, lastPage }: IPagination) => {
+const Pagination = ({ paginationArr, handleClick, appcontext, lastPage }: IPagination) => {
+  const {
+    searchState: { currentPage },
+  } = useContext(appcontext);
+  const { search } = useLocation();
+
   return (
     <section>
       <h2 className="visually-hidden">Pagination bar</h2>
       <div className="container">
         <ul css={p.paginationWrap} className="reset-list">
           <li>
-            <Link to="/1" css={p.firstBtn} onClick={handleClick} className="disabled" data-page="firstPage">
+            <Link
+              to={`/1${search}`}
+              css={p.firstBtn}
+              onClick={handleClick}
+              className={+currentPage === 1 ? 'disabled' : ''}
+              data-page="firstPage"
+            >
               <span className="visually-hidden">First page</span>
             </Link>
           </li>
           <li>
             <Link
-              to={`/${currentPage > 1 ? currentPage - 1 : currentPage}`}
+              to={+currentPage === 1 ? `/1${search}` : `/${currentPage > 1 ? currentPage - 1 : currentPage}${search}`}
               css={p.prevBtn}
               onClick={handleClick}
-              className="disabled"
+              className={+currentPage === 1 ? 'disabled' : ''}
               data-page="prevPage"
             >
               <span className="visually-hidden">Prev page</span>
@@ -41,11 +53,11 @@ const Pagination = ({ paginationArr, handleClick, currentPage, lastPage }: IPagi
             paginationArr.map((item) => (
               <li key={item}>
                 <Link
-                  to={`/${item}`}
+                  to={`/${item}${search}`}
                   data-page={`page-${item}`}
                   css={p.paginationBtn}
                   onClick={handleClick}
-                  className={item === currentPage ? 'active' : ''}
+                  className={item === +currentPage ? 'active' : ''}
                 >
                   {item}
                 </Link>
@@ -54,16 +66,27 @@ const Pagination = ({ paginationArr, handleClick, currentPage, lastPage }: IPagi
           )}
           <li>
             <Link
-              to={`/${currentPage < lastPage ? currentPage + 1 : currentPage}`}
+              to={
+                +currentPage === lastPage
+                  ? `/${lastPage}${search}`
+                  : `/${currentPage < lastPage ? +currentPage + 1 : currentPage}${search}`
+              }
               css={p.nextBtn}
               onClick={handleClick}
               data-page="nextPage"
+              className={+currentPage === lastPage ? 'disabled' : ''}
             >
               <span className="visually-hidden">Next page</span>
             </Link>
           </li>
           <li>
-            <Link to={`/${lastPage}`} css={p.lastBtn} onClick={handleClick} data-page="lastPage">
+            <Link
+              to={`/${lastPage}${search}`}
+              className={+currentPage === lastPage ? 'disabled' : ''}
+              css={p.lastBtn}
+              onClick={handleClick}
+              data-page="lastPage"
+            >
               <span className="visually-hidden">Last page</span>
             </Link>
           </li>
