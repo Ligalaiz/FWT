@@ -1,15 +1,20 @@
-import React, { useState, ChangeEvent, Dispatch, SetStateAction } from 'react';
+import React, { useState, ChangeEvent, useContext, Context } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import * as r from './RangeField.style';
+import { IAppContext } from '@src/store/context';
 
 interface IRangeField {
-  selectedFrom: string;
-  selectedBefore: string;
-  setSelectedFrom: Dispatch<SetStateAction<string>>;
-  setSelectedBefore: Dispatch<SetStateAction<string>>;
+  appcontext: Context<IAppContext>;
 }
 
-const RangeField = ({ selectedFrom, selectedBefore, setSelectedFrom, setSelectedBefore }: IRangeField) => {
+const RangeField = ({ appcontext }: IRangeField) => {
   const [isActive, setIsActive] = useState(false);
+  const {
+    searchActions: { setSelectedFrom, setSelectedBefore, setCurrentPage },
+    searchState: { selectedFrom, selectedBefore },
+  } = useContext(appcontext);
+  const { search } = useLocation();
+  const navigate = useNavigate();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const fieldName = e.currentTarget.getAttribute('data-name');
@@ -18,6 +23,10 @@ const RangeField = ({ selectedFrom, selectedBefore, setSelectedFrom, setSelected
     };
     if (fieldName === 'from') setSelectedFrom(value);
     if (fieldName === 'before') setSelectedBefore(value);
+    if (fieldName === 'before' || fieldName === 'from') {
+      navigate(`/1${search}`);
+      setCurrentPage(1);
+    }
   };
 
   const handleCreatedBtnClick = () => {

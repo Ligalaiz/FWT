@@ -36,3 +36,9 @@ export const cardsList = css`
     max-width: 1120rem;
   }
 `;
+
+export const cardsMessage = css`
+  text-align: center;
+  font-size: 2.4rem;
+  fons-wight: 700;
+`;

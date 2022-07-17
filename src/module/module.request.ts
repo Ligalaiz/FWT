@@ -4,7 +4,7 @@ interface ServerResponse {
   [key: string]: any;
 }
 
-const request = async (req: string) => {
+const request = async (req: string, setError: (error: { message: string } | null) => void) => {
   try {
     const response = await axiosInstance.request<ServerResponse>({
       method: 'get',
@@ -20,6 +20,7 @@ const request = async (req: string) => {
     return data;
   } catch (e) {
     const error: string = (e as Error).message;
+    setError({ message: error });
   }
 };
 

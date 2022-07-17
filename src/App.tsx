@@ -1,7 +1,12 @@
 import React, { FC, ReactNode } from 'react';
+import { AppProvider } from '@src/store';
 
 const App: FC<ReactNode> = ({ children }) => {
-  return <>{children}</>;
+  return (
+    <>
+      <AppProvider>{children}</AppProvider>
+    </>
+  );
 };
 
 export { App };

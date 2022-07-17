@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext, Context } from 'react';
 import { Card } from '@components/CardsList/Card';
 import { Loader } from '@components/Loader';
 import * as c from './CardsList.style';
+import { IAppContext } from '@src/store/context';
 
 interface IData {
   authorId: number;
@@ -17,19 +18,25 @@ interface IData {
 
 interface ICardsList {
   paintsData: IData[];
-  isLoading: boolean;
+  appcontext: Context<IAppContext>;
 }
 
-const CardsList = ({ paintsData, isLoading }: ICardsList) => {
+const CardsList = ({ paintsData, appcontext }: ICardsList) => {
+  const {
+    searchState: { isLoading },
+  } = useContext(appcontext);
+
   return (
     <section>
       <h2 className="visually-hidden">Arts Gallery </h2>
       <div className="container">
         <h2 className="visually-hidden">Gallery List</h2>
         <div css={c.cardsList}>
-          {paintsData.map((card) => (
-            <Card cardData={card} key={card.id} />
-          ))}
+          {paintsData.length === 0 && !isLoading ? (
+            <p css={c.cardsMessage}>Images not Found :(</p>
+          ) : (
+            paintsData.map((card) => <Card cardData={card} key={card.id} />)
+          )}
         </div>
       </div>
       {isLoading && <Loader />}
