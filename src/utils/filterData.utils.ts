@@ -43,35 +43,32 @@ const filterData = (props: IFilterData) => {
     return res;
   }, {});
 
-  console.log({ checkParam });
-  console.log({ fields });
-
   const result = data.filter((paint) => {
     let isChecked = false;
+
     if (checkParam.searchValue) {
       const fieldsForCheck = [paint.author, paint.location, paint.name];
-
       isChecked = fieldsForCheck.some((item) => checkString(item, checkParam.searchValue));
-      console.log('searchValue');
+      if (!isChecked) return isChecked;
     }
+
     if (checkParam.selectedLocation) {
-      console.log('selectedLocation');
       isChecked = checkString(paint.location, checkParam.selectedLocation);
+      if (!isChecked) return isChecked;
     }
+
     if (checkParam.selectedAuthor) {
-      console.log('selectedAuthor');
       isChecked = checkString(paint.author, checkParam.selectedAuthor);
-      console.log({ isChecked });
-      console.log(paint.author);
+      if (!isChecked) return isChecked;
     }
+
     if (checkParam.selectedFrom || checkParam.selectedBefore) {
-      console.log('selectedBefore');
       isChecked = checkDate(checkParam.selectedFrom, checkParam.selectedBefore, paint.created);
+      if (!isChecked) return isChecked;
     }
 
     return isChecked;
   });
-  console.log({ result });
 
   return result;
 };
