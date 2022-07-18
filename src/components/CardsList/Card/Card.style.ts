@@ -58,17 +58,6 @@ export const cardImage = css`
   }
 `;
 
-export const image = css`
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-
-  object-fit: cover;
-`;
-
 export const cardPromo = css`
   position: absolute;
   bottom: 0;
@@ -80,6 +69,8 @@ export const cardPromo = css`
   flex-direction: column;
   align-items: flex-start;
   padding: 0.4rem 1rem 0 1.5rem;
+
+  color: ${color['black-color']};
 
   background-color: ${color['white-color-light-x1']};
   ${anim.smooth}

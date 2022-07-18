@@ -14,16 +14,17 @@ export const createdBtn = css`
   border-radius: 0.8rem;
   max-width: 28rem;
   width: 100%;
-  border: 1px solid ${color['black-color-light']};
+  border: 1px solid var(--color-ui-border);
 
-  background-color: ${color['white-color']};
+  color: var(--color-text);
+
+  background-color: var(--color-ui-reverse-field);
   cursor: pointer;
 
   &.active {
     border-radius: 0.8rem 0.8rem 0 0;
-    border-bottom: none;
-    border: 1px solid ${color['black-color']};
-    border-bottom: none;
+    border: 1px solid var(--color-ui-border);
+    border-bottom-color: transparent;
 
     &:before {
       content: ' ';
@@ -44,7 +45,7 @@ export const createdBtn = css`
 
 export const createdArrow = css`
   border: 0.6rem solid transparent;
-  border-top: 0.8rem solid ${color['black-color-light']};
+  border-top: 0.8rem solid var(--color-text-placeholder);
 
   transform: translateY(40%);
 
@@ -66,10 +67,10 @@ export const createdList = css`
   max-width: 28rem;
   padding: 2rem 1rem 2rem;
   border-radius: 0 0 0.8rem 0.8rem;
-  border: 1px solid ${color['black-color']};
+  border: 1px solid var(--color-ui-border);
   border-top: none;
 
-  background-color: ${color['white-color']};
+  background-color: var(--color-ui-reverse-field);
 
   z-index: 81;
 

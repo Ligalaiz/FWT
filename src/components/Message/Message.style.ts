@@ -4,7 +4,7 @@ import { color } from '@src/styles';
 export const messageWrap = css`
   position: absolute;
   top: 200px;
-  left: 42%;
+  left: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,6 +21,7 @@ export const messageWrap = css`
   box-shadow: 0px 6px 13px -1px ${color['white-color']};
 
   animation: jump 3s ease-in-out;
+  transform: translateX(-50%);
 
   @keyframes jump {
     0% {
@@ -80,5 +81,5 @@ export const messageWrap = css`
 
 export const messageWrapErr = css`
   ${messageWrap}
-  background-color: ${color['red-color-X1']};
+  background-color: ${color['red-color-x1']};
 `;

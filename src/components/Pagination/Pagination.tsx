@@ -26,7 +26,7 @@ const Pagination = ({ paginationArr, handleClick, appcontext, lastPage }: IPagin
               to={`/1${search}`}
               css={p.firstBtn}
               onClick={handleClick}
-              className={+currentPage === 1 ? 'disabled' : ''}
+              className={+currentPage === 1 || lastPage === 0 ? 'disabled' : ''}
               data-page="firstPage"
             >
               <span className="visually-hidden">First page</span>
@@ -37,7 +37,7 @@ const Pagination = ({ paginationArr, handleClick, appcontext, lastPage }: IPagin
               to={+currentPage === 1 ? `/1${search}` : `/${currentPage > 1 ? currentPage - 1 : currentPage}${search}`}
               css={p.prevBtn}
               onClick={handleClick}
-              className={+currentPage === 1 ? 'disabled' : ''}
+              className={+currentPage === 1 || lastPage === 0 ? 'disabled' : ''}
               data-page="prevPage"
             >
               <span className="visually-hidden">Prev page</span>
@@ -74,15 +74,15 @@ const Pagination = ({ paginationArr, handleClick, appcontext, lastPage }: IPagin
               css={p.nextBtn}
               onClick={handleClick}
               data-page="nextPage"
-              className={+currentPage === lastPage ? 'disabled' : ''}
+              className={+currentPage === lastPage || lastPage === 0 ? 'disabled' : ''}
             >
               <span className="visually-hidden">Next page</span>
             </Link>
           </li>
           <li>
             <Link
-              to={`/${lastPage}${search}`}
-              className={+currentPage === lastPage ? 'disabled' : ''}
+              to={lastPage === 0 ? `/1${search}` : `/${lastPage}${search}`}
+              className={+currentPage === lastPage || lastPage === 0 ? 'disabled' : ''}
               css={p.lastBtn}
               onClick={handleClick}
               data-page="lastPage"
