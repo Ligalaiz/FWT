@@ -1,13 +1,11 @@
 import { css } from '@emotion/react';
-import { color, anim, media } from '@src/styles';
+import { anim, media } from '@src/styles';
 
 export const paginationWrap = css`
   display: flex;
   max-width: 28.7rem;
   min-height: 4.1rem;
   margin-bottom: 3.4rem;
-
-  color: ${color['white-color']};
 
   @media (${media.sm}) {
     margin-bottom: 5.4rem;
@@ -30,37 +28,39 @@ export const styleBtn = css`
   justify-content: center;
   min-width: 4.1rem;
   min-height: 4.1rem;
-  border: 1px solid ${color['black-color']};
+  border: 1px solid var(--color-ui-base);
 
   font-weight: 500;
   font-size: 1.8rem;
   line-height: 1.11;
-  color: ${color['black-color']};
+  color: var(--color-text);
 
-  background-color: ${color['white-color']};
+  background-color: var(--color-ui-reverse);
   cursor: pointer;
   ${anim.smooth}
 
   &:hover:not(.active):not(.disabled) {
-    background-color: ${color['gray-color-light-x4']};
+    background-color: var(--color-ui-pag-hover);
   }
 
   &.active {
-    background-color: ${color['black-color']};
-    color: ${color['white-color']};
+    background-color: var(--color-ui-base);
+    color: var(--color-ui-reverse);
     cursor: default;
   }
 
   &.disabled {
-    border-color: ${color['black-color-light']};
+    border-color: var(--color-ui-border);
 
-    color: ${color['black-color-light']};
+    color: var(--color-text-placeholder);
+
+    background-color: var(--color-ui-pag-disabled);
 
     cursor: default;
 
     &:before,
     &:after {
-      border-color: ${color['black-color-light']};
+      border-color: var(--color-text-placeholder);
     }
   }
 `;
@@ -76,7 +76,7 @@ export const arrowBtn = css`
 
     width: 1rem;
     height: 1rem;
-    border: 0.2rem solid ${color['black-color']};
+    border: 0.2rem solid var(--color-ui-border);
     border-top: none;
     border-right: none;
   }
@@ -94,7 +94,7 @@ export const dobleArrowBtn = css`
 
     width: 1rem;
     height: 1rem;
-    border: 0.2rem solid ${color['black-color']};
+    border: 0.2rem solid var(--color-ui-border);
     border-top: none;
     border-right: none;
   }
