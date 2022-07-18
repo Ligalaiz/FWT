@@ -1,12 +1,11 @@
 import { css } from '@emotion/react';
-import { color } from '@src/styles';
 
 export const loader = css`
   width: 3.2rem;
   height: 3.2rem;
   border-radius: 50%;
-  border: 6px solid ${color['black-color']};
-  border-color: ${color['black-color']} transparent ${color['black-color']} transparent;
+  border: 6px solid var(--color-ui-base);
+  border-color: var(--color-ui-base) transparent var(--color-ui-base) transparent;
   margin: 0 auto;
 
   animation: lds-dual-ring 1.2s linear infinite;
