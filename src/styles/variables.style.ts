@@ -21,7 +21,9 @@ export const color: IVariables = {
   'gray-color-light-x4': '#EDEDED',
   'gray-color-light-x5': '#464646',
   'red-color': '#D00000',
+  'red-colo-x1': '##d00000e3',
   'blue-color': '#518fb4',
+  'green-color': '#75bd85f5',
 };
 
 export const media: IVariables = {
