@@ -9,10 +9,17 @@ import { FilterBar } from '@components/FilterBar';
 import { CardsList } from '@components/CardsList';
 import { Pagination } from '@components/Pagination';
 import { delay, serializeData, filterData, createPagArray } from '@src/utils';
+import { errorBoundary } from '@src/hoc/errorBoundary';
 
 interface IGallery {
   appcontext: Context<IAppContext>;
 }
+
+const HeaderWithErrorBoundary = errorBoundary(Header);
+const MessageWithWithErrorBoundary = errorBoundary(Message);
+const FilterBarWithErrorBoundary = errorBoundary(FilterBar);
+const CardsListWithErrorBoundary = errorBoundary(CardsList);
+const PaginationWithErrorBoundary = errorBoundary(Pagination);
 
 const Gallery = ({ appcontext }: IGallery) => {
   const {
@@ -139,18 +146,18 @@ const Gallery = ({ appcontext }: IGallery) => {
 
   return (
     <>
-      <Header />
+      <HeaderWithErrorBoundary />
       <main css={g.main}>
-        <FilterBar appcontext={appcontext} />
-        <CardsList appcontext={appcontext} paintsData={currentRenderPaints} />
-        <Pagination
+        <FilterBarWithErrorBoundary appcontext={appcontext} />
+        <CardsListWithErrorBoundary appcontext={appcontext} paintsData={currentRenderPaints} />
+        <PaginationWithErrorBoundary
           appcontext={appcontext}
           paginationArr={currentPagArr}
           handleClick={handlePaginationClick}
           lastPage={pageCount}
         />
       </main>
-      {error && <Message content={error.message} err />}
+      {error && <MessageWithWithErrorBoundary content={error.message} err />}
     </>
   );
 };
