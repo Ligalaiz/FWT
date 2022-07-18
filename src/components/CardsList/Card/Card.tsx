@@ -1,5 +1,6 @@
 import React from 'react';
 import * as c from './Card.style';
+import { Img } from '@components/CardsList/Img';
 
 interface IData {
   authorId: number;
@@ -17,15 +18,13 @@ interface ICard {
   cardData: IData;
 }
 
-const basePath = process.env.BASE_PATH_REMOTE;
-
 const Card = ({ cardData }: ICard) => {
   const { name, author, created, location, imageUrl } = cardData;
 
   return (
     <div css={c.card}>
       <div css={c.cardImage}>
-        <img css={c.image} src={`${basePath}${imageUrl}`} alt={name} />
+        <Img src={`${imageUrl}`} alt={name} />
       </div>
       <div css={c.cardPromo} className="promoCard">
         <p css={c.cardTitle}>{name}</p>

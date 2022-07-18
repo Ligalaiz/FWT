@@ -44,14 +44,16 @@ export const dropDownBtn = css`
   max-width: 28rem;
   width: 100%;
   height: 4.8rem;
-  border: 1px solid ${color['black-color-light']};
+  border: 1px solid var(--color-ui-border);
 
-  background-color: ${color['white-color']};
+  color: var(--color-text);
+
+  background-color: var(--color-ui-reverse-field);
   cursor: pointer;
 
   &.active {
     border-radius: 0.8rem 0.8rem 0 0;
-    border: 1px solid ${color['black-color']};
+    border: 1px solid var(--color-ui-border);
 
     &:before {
       content: ' ';
@@ -78,10 +80,10 @@ export const dropDownListWrap = css`
   width: 100%;
   max-height: 43rem;
   padding-bottom: 3rem;
-  border: 1px solid ${color['black-color']};
+  border: 1px solid var(--color-ui-border);
   border-top: none;
 
-  background-color: ${color['white-color']};
+  background-color: var(--color-ui-reverse-field);
   overflow: hidden;
   z-index: 81;
 
@@ -108,7 +110,7 @@ export const dropDownList = css`
   max-height: 40rem;
   padding: 0.7rem 0;
 
-  background-color: ${color['white-color']};
+  background-color: var(--color-ui-reverse-field);
   overflow: overlay;
 
   &::-webkit-scrollbar {
@@ -136,7 +138,7 @@ export const dropDownList = css`
 
     width: 100%;
     height: 2rem;
-    background-color: ${color['white-color']};
+    background-color: var(--color-ui-reverse-field);
   }
 
   @media (${media.sm}) {
@@ -154,17 +156,18 @@ export const dropDownItem = css`
   position: relative;
   padding: 1rem 1.5rem 1rem 2.8rem;
 
-  color: ${color['black-color']};
+  color: var(--color-text);
   font-weight: 500;
   font-size: 1.6rem;
   line-height: 1.25;
 
+  background-color: var(--color-ui-reverse-field);
+
   cursor: pointer;
-  ${anim.smooth};
 
   &:hover {
-    color: ${color['white-color']};
-    background-color: ${color['black-color']};
+    color: var(--color-ui-reverse);
+    background-color: var(--color-ui-base);
   }
 
   @media (${media.sm}) {
@@ -187,7 +190,7 @@ export const dropDownItem = css`
 
 export const dropDownArrow = css`
   border: 0.6rem solid transparent;
-  border-top: 0.8rem solid ${color['black-color-light']};
+  border-top: 0.8rem solid var(--color-text-placeholder);
   margin-left: auto;
 
   transform: translateY(40%);
@@ -224,7 +227,7 @@ export const dropDownCancel = css`
     width: 1rem;
     height: 0.1rem;
 
-    background-color: ${color['black-color-light']};
+    background-color: var(--color-text-placeholder);
   }
 
   &:before {

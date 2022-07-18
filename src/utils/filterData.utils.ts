@@ -44,7 +44,7 @@ const filterData = (props: IFilterData) => {
   }, {});
 
   const result = data.filter((paint) => {
-    let isChecked = false;
+    let isChecked = true;
 
     if (checkParam.searchValue) {
       const fieldsForCheck = [paint.author, paint.location, paint.name];

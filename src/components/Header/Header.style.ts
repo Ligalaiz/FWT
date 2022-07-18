@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { color, media } from '@src/styles';
+import { media } from '@src/styles';
 
 export const header = css`
   position: fixed;
@@ -7,8 +7,8 @@ export const header = css`
   z-index: 100;
 
   &.active {
-    background: ${color['gray-color-light-x1']};
-    box-shadow: 0 1.4rem 2.8rem rgb(0 0 0 / 25%), 0 1rem 1rem rgb(0 0 0 / 22%);
+    background-color: var(--color-ui-header);
+    box-shadow: 0 1.4rem 2.8rem var(--color-ui-header-shadow2), 0 1rem 1rem var(--color-ui-header-shadow1);
   }
 `;
 
