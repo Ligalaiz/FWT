@@ -1,5 +1,4 @@
 import { css } from '@emotion/react';
-import { color } from '@src/styles';
 
 export const searchFieldWrap = css`
   order: 1;
@@ -10,14 +9,18 @@ export const searchField = css`
   border-radius: 0.8rem;
   max-width: 28rem;
   width: 100%;
-  border: 1px solid ${color['black-color-light']};
+  border: 1px solid var(--color-ui-border);
+
+  color: var(--color-text);
+
+  background-color: var(--color-ui-reverse-field);
 
   &::placeholder {
-    color: ${color['black-color-light']};
+    color: var(--color-text-placeholder);
   }
 
   &:focus,
   &:not(:placeholder-shown) {
-    border: 1px solid ${color['black-color']};
+    border: 1px solid var(--color-ui-base);
   }
 `;
