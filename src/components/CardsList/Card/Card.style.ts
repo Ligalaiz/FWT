@@ -27,6 +27,7 @@ export const card = css`
 
   @media (${media.sm}) {
     max-width: 34rem;
+    margin: 0 auto;
   }
 
   @media (${media.md}) {

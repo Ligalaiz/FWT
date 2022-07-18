@@ -8,6 +8,7 @@ export const header = css`
 
   &.active {
     background: ${color['gray-color-light-x1']};
+    box-shadow: 0 1.4rem 2.8rem rgb(0 0 0 / 25%), 0 1rem 1rem rgb(0 0 0 / 22%);
   }
 `;
 

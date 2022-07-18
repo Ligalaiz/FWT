@@ -7,6 +7,10 @@ export const main = css`
   display: grid;
   grid-template-rows: 24.2rem 1fr 10rem;
 
+  @media (min-width: 500px) {
+    grid-template-rows: 13.2rem 1fr 10rem;
+  }
+
   @media (${media.sm}) {
     grid-template-rows: 6.1rem 1fr 10rem;
     padding-top: 13.3rem;
