@@ -7,7 +7,7 @@ const initialSearchState: IInitialSearchState = {
   selectedLocation: '',
   selectedFrom: '',
   selectedBefore: '',
-  itemsPerPage: 5,
+  itemsPerPage: 12,
   data: [],
   isLoading: false,
   locations: null,
