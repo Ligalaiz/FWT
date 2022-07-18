@@ -3,6 +3,7 @@ import { Card } from '@components/CardsList/Card';
 import { Loader } from '@components/Loader';
 import * as c from './CardsList.style';
 import { IAppContext } from '@src/store/context';
+import { errorBoundary } from '@src/hoc/errorBoundary';
 
 interface IData {
   authorId: number;
@@ -21,6 +22,8 @@ interface ICardsList {
   appcontext: Context<IAppContext>;
 }
 
+const CardithErrorBoundary = errorBoundary(Card);
+
 const CardsList = ({ paintsData, appcontext }: ICardsList) => {
   const {
     searchState: { isLoading },
@@ -35,7 +38,7 @@ const CardsList = ({ paintsData, appcontext }: ICardsList) => {
           {paintsData.length === 0 && !isLoading ? (
             <p css={c.cardsMessage}>Images not Found :(</p>
           ) : (
-            paintsData.map((card) => <Card cardData={card} key={card.id} />)
+            paintsData.map((card) => <CardithErrorBoundary cardData={card} key={card.id} />)
           )}
         </div>
       </div>
