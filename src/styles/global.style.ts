@@ -102,6 +102,36 @@ export const globalStyle = css`
   }
 
   body {
+    &[data-theme='dark'] {
+      --color-text: ${color['white-color']};
+      --color-text-placeholder: ${color['white-color-light']};
+      --color-bg: ${color['black-color']};
+      --color-ui-base: ${color['white-color']};
+      --color-ui-reverse: ${color['black-color']};
+      --color-ui-reverse-field: ${color['black-color-light-x1']};
+      --color-ui-border: ${color['white-color']};
+      --color-ui-pag-disabled: ${color['white-color-light']};
+      --color-ui-pag-hover: ${color['gray-color-light-x5']};
+      --color-ui-header: ${color['black-color']};
+      --color-ui-header-shadow1: ${color['white-color-light-x2']};
+      --color-ui-header-shadow2: ${color['white-color-light-x3']};
+    }
+
+    &[data-theme='light'] {
+      --color-text: ${color['black-color']};
+      --color-text-placeholder: ${color['black-color-light']};
+      --color-bg: ${color['gray-color-light-x1']};
+      --color-ui-base: ${color['black-color']};
+      --color-ui-reverse: ${color['white-color']};
+      --color-ui-reverse-field: ${color['white-color']};
+      --color-ui-border: ${color['black-color-light']};
+      --color-ui-pag-disabled: ${color['gray-color-light-x4']};
+      --color-ui-pag-hover: ${color['gray-color-light-x4']};
+      --color-ui-header: ${color['gray-color-light-x1']};
+      --color-ui-header-shadow1: ${color['black-color-light-x2']};
+      --color-ui-header-shadow2: ${color['black-color-light-x3']};
+    }
+
     position: relative;
 
     height: 100%;
@@ -112,12 +142,13 @@ export const globalStyle = css`
     font-weight: 400;
     font-size: 1rem;
     line-height: 1.5;
-    color: ${color['black-color']};
+    color: var(--color-text);
 
-    background-color: ${color['gray-color-light-x1']};
+    background-color: var(--color-bg);
     text-rendering: optimizeSpeed;
     user-select: none;
     -webkit-font-smoothing: antialiased;
+
   }
 
   a {
@@ -184,4 +215,8 @@ export const globalStyle = css`
   #root {
     height: 100%;
   }
+
+  .theme {
+  fill: var(--color-ui-base);
+}
 `;
