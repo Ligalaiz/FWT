@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased][unreleased]
+## [0.0.5][] - 2022-07-18
 
 - Add dark theme
 
@@ -20,7 +20,7 @@
 
 - Add Header component
 
-[unreleased]: https://github.com/Ligalaiz/FWT/compare/v0.0.4...HEAD
+[0.0.5]: https://github.com/Ligalaiz/FWT/compare/v0.0.4...v0.0.5
 [0.0.4]: https://github.com/Ligalaiz/FWT/compare/v0.0.3...v0.0.4
 [0.0.3]: https://github.com/Ligalaiz/FWT/compare/v0.0.2...v0.0.3
 [0.0.2]: https://github.com/Ligalaiz/FWT/compare/v0.0.1...v0.0.2
