@@ -46,7 +46,7 @@ export const globalStyle = css`
   html {
     box-sizing: border-box;
     overflow: -moz-scrollbars-vertical;
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
     height: 100%;
 

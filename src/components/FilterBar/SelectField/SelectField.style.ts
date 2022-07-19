@@ -114,22 +114,18 @@ export const dropDownList = css`
   overflow: overlay;
 
   &::-webkit-scrollbar {
-    width: 16px;
+    width: 2.5rem;
   }
 
   &::-webkit-scrollbar-thumb {
-    border-left: 10px solid ${color['gray-color']};
-    height: 20px;
-    width: 20px;
+    border: 0.85rem solid transparent;
+    background-clip: padding-box;
+    border-radius: 999.9rem;
+    background-color: ${color['gray-color']};
   }
 
   &::-webkit-scrollbar-track {
     background-color: transparent;
-  }
-
-  &::-webkit-scrollbar-track-piece:start {
-    background: transparent;
-    margin-top: 0.1rem;
   }
 
   &:before {
@@ -143,12 +139,12 @@ export const dropDownList = css`
 
   @media (${media.sm}) {
     padding-top: 1.4rem;
-    row-gap: 1rem;
     max-height: 32.4rem;
   }
 
   @media (${media.md}) {
-    max-height: 33.4rem;
+    max-height: 28.4rem;
+    padding-top: 0.8rem;
   }
 `;
 
@@ -162,29 +158,54 @@ export const dropDownItem = css`
   line-height: 1.25;
 
   background-color: var(--color-ui-reverse-field);
-
   cursor: pointer;
 
-  &:hover {
+  &:hover,
+  &:hover > div {
     color: var(--color-ui-reverse);
     background-color: var(--color-ui-base);
   }
 
   @media (${media.sm}) {
     padding: 0.5rem 0.3rem 0.5rem 1.5rem;
+    min-height: 2.96rem;
+  }
 
+  @media (${media.md}) {
+    padding: 1rem 0.3rem 1rem 2rem;
+
+    min-height: 4rem;
+
+    background-color: var(--color-ui-reverse-field);
+  }
+`;
+
+export const dropDownItemWrap = css`
+  position: relative;
+  max-width: 14.5rem;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1.25;
+
+  overflow: hidden;
+  cursor: pointer;
+  background-color: var(--color-ui-reverse-field);
+
+  @media (${media.sm}) {
     text-overflow: ellipsis;
     white-space: nowrap;
     max-width: 14.5rem;
-    min-height: 2.96rem;
 
     overflow: hidden;
   }
 
   @media (${media.md}) {
-    padding-left: 2rem;
     max-width: 20rem;
-    min-height: 3rem;
+
+    background-color: var(--color-ui-reverse-field);
   }
 `;
 

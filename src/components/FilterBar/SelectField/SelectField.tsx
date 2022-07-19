@@ -99,7 +99,7 @@ const SelectField = ({ name, appcontext }: ISelectedField) => {
             {options ? (
               Object.keys(options).map((key) => (
                 <li onClick={handleDropDownItemClick} css={s.dropDownItem} key={key}>
-                  {options[key]}
+                  <div css={s.dropDownItemWrap}>{options[key]}</div>
                 </li>
               ))
             ) : (
